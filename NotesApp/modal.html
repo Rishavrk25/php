@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./src/output.css" rel="stylesheet">
+  <title>Notes App</title>
+</head>
+
+<style>
+  /* Define the animation for the modal */
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-100%);
+      /* Start above the screen */
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      /* End at its normal position */
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(0);
+      /* Start below the screen */
+      opacity: 0;
+      /* Start invisible */
+    }
+
+    100% {
+      transform: translateY(-100%);
+      /* End at its normal position */
+      opacity: 1;
+      /* End fully visible */
+    }
+  }
+
+
+  .animate-slide-down {
+    animation: slideDown 0.2s ease-out forwards;
+  }
+
+  .animate-slide-up-close {
+    animation: slideUp 0.2s ease-out forwards;
+  }
+</style>
+
+<body class="h-[100vh] w-[100%] ">
+  <button class="p-1 border bg-blue-700 text-white rounded" id="btn">Edit Modal</button>
+  <!-- container -->
+  <div id="container" class=""></div>
+  <script>
+    let btn = document.getElementById("btn");
+    let container = document.getElementById("container");
+    btn.addEventListener("click", () => {
+      container.innerHTML = `
+      <div class="h-[220px] w-[400px] px-4 py-1 shadow-2xl shadow-gray-600 rounded-xl flex flex-col justify-evenly mx-auto" id="modal">
+        <h1 class="text-2xl">Modal title</h1>
+          <textarea name="" id="" class="h-[50px] border block w-full border-gray-400 px-1"></textarea>
+          <div class="flex justify-end gap-2">
+            <input type="submit" value="close" class="px-2 py-1.5 border bg-gray-500 text-white rounded" id="close">
+            <input type="submit" value="save changes" class="px-2 py-1.5 border bg-blue-700 text-white rounded">
+          </div>
+        </div>`;
+      let modal = document.getElementById("modal");
+      modal.classList.add("animate-slide-down");
+
+      let close = document.getElementById("close");
+      close.addEventListener("click", () => {
+        modal.classList.add("animate-slide-up-close");
+        setTimeout(()=>{
+          container.innerHTML="";
+        },100);
+      });
+    });
+  </script>
+
+</body>
+
+</html>

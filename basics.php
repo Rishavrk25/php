@@ -35,6 +35,7 @@
     
     // STRING
     // $name='harry';
+    // echo gettype($name);
     // echo $name;
     // echo "<br>";
     // echo "$name";
@@ -53,13 +54,42 @@
     // echo var_dump($is_friend);
     // echo "<br>";
 
-    // ARRAYS
+    // --------------------------ARRAYS-----------------------------------------
     // $friends=array("rohan","shubham","hello");
     // echo var_dump($friends);
     // echo "<br>";
     // echo $friends[0] ."<br>";
     // echo $friends[1] ."<br>";
     // echo $friends[2] ."<br>"; 
+
+    // $days=[];
+    // for($i=0;$i<7;$i++){
+    //     $days[$i]=(string)readline("Enter days");
+    // }
+    // for($i=0;$i<7;$i++){
+    //     echo $days[$i]."\n";
+    // }
+
+    $arr=["oshg","ogsah","oshg"];
+    for($i=0;$i<count($arr);$i++){
+        echo $arr[$i];
+    }
+    // -----------For each loop--------------
+    foreach($arr as $i){
+        echo $i."\n";
+    }
+
+    // $arr=[
+    //     [1,2,3],
+    //     [1,2,3],
+    //     [1,2,3],
+    // ];
+    // for($i=0;$i<3;$i++){
+    //     for($j=0;$j<3;$j++){
+    //         echo $arr[$i][$j];
+    //     }
+    //     echo "\n";
+    // }
     
     // NULL
     // $name=NULL;
@@ -211,6 +241,13 @@
     //     echo "$a";
     // }
     // printValue();
+    
+
+    // USER INPUT
+    // echo "Enter an input\n";
+    // $input=readline();
+    // echo $input;
+
     
 ?>
 
